@@ -1,4 +1,9 @@
-
+@Test
+public void notValidLoginEmptyAllFields() {
+    app.getNavigationHelper().openLoginPage();
+    app.getLoginHelper().clickLogin();
+    Assert.assertTrue(!app.getLoginHelper().isError());
+}
 
 @Test
 public void notValidLoginEmptyField() {
@@ -57,7 +62,7 @@ public void notValidPasswordWithUpperLetters() {
 @Test
 public void notValidLoginWithRussianLetters() {
     app.getNavigationHelper().openLoginPage();
-    app.getLoginHelper().setLoginWithValidAllFields("Sho-tåst");
+    app.getLoginHelper().setLoginWithValidAllFields("Sho-tÃ¥st");
     app.getLoginHelper().clickLogin();
     Assert.assertTrue(!app.getLoginHelper().isError());
 }
@@ -66,7 +71,7 @@ public void notValidLoginWithRussianLetters() {
 @Test
 public void notValidPasswordWithRussianLetters() {
     app.getNavigationHelper().openLoginPage();
-    app.getLoginHelper().setPasswordWithValidAllFields("ik5ñk2h");
+    app.getLoginHelper().setPasswordWithValidAllFields("ik5Ã±k2h");
     app.getLoginHelper().clickLogin();
     Assert.assertTrue(!app.getLoginHelper().isError());
 }
